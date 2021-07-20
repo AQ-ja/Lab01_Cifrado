@@ -34,23 +34,33 @@ def limpiar(tx):
 texto = limpiar(text)
 print("El texto se quedara como: ", texto, "y con la clave: ", clave)
 
-def cifrar(textito, clave): 
+def cifrar(texto, clave): 
     cifrado = ''
     i = 0
-    for letra in textito:
-        suma = abc.find(letra) + abc.find(clave[i] % len(clave)) 
+    for letra in texto:
+        suma =  abc.find(letra) + abc.find(clave[i % len(clave)])
         mod = int(suma) % len(abc)
         cifrado = cifrado + str(abc[mod])
         i=i+1
     return cifrado
 
 
-def descifrar(textito, clave): 
+print('El texto cifrado es: ', cifrar(texto, clave))
+
+print("_______________________________________________________________________")
+print("Cual es el texto que desea descifrar? ")
+texto=str(input()).lower()
+print("Cual es la clave que utilizara? ")
+clave = str(input())
+
+def descifrar(texto, clave): 
     descifrado = ''
     i = 0
-    for letra in textito:
-        suma = abc.find(letra) - abc.find(clave[i] % len(clave)) 
+    for letra in texto:
+        suma = abc.find(letra) - abc.find(clave[i % len(clave)]) 
         mod = int(suma) % len(abc)
         descifrado = descifrado + str(abc[mod])
         i=i+1
     return descifrado
+
+print('El texto cifrado es: ', descifrar(texto, clave))
