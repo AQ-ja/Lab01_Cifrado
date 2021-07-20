@@ -39,7 +39,7 @@ def decifrar():
     mensaje = input("Mensaje cifrado: \n")
     mensaje = mensaje.lower()
     mensaje = limpiar(mensaje)
-    clave = int(input("clave"))
+    clave = int(input("clave: \n"))
     abc = "abcdefghijklmnñopqrstuvwxyz"
     for key in range(len(abc)):
         trans = ""
@@ -54,6 +54,7 @@ def decifrar():
                 trans = trans+symbol
         if clave == key:
             print("Descifrando con llave #%s: %s \n" % (key, trans))
+            return trans
 
 
 def decifrarFuerza():
@@ -74,9 +75,23 @@ def decifrarFuerza():
         print("Descifrando con llave #%s: %s \n" % (key, trans))
 
 
+def contarLetras(mensaje):
+   # mensaje = input("Mensaje cifrado: \n")
+   # mensaje = mensaje.lower()
+    abc = "abcdefghijklmnñopqrstuvwxyz"
+    for key in range(len(abc)):
+        letrasT = mensaje.count(abc[key])
+        probabilidad = letrasT/len(abc)
+        print("Las probabilidad de la letra %s son: %s" %
+              (abc[key], probabilidad))
+
+
 # mensaje = input("Mensaje cifrado: ")
 # mensaje = mensaje.lower()
 # clave = int(input("clave"))
 # decifrar()
-decifrarFuerza()
+# decifrarFuerza()
 # cifrar()
+# contarLetras()
+# decifrarFuerza()
+contarLetras(decifrar())
