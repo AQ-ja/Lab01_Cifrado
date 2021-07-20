@@ -1,6 +1,21 @@
 import re
 
 
+def contarLetras(mensaje):
+   # mensaje = input("Mensaje cifrado: \n")
+   # mensaje = mensaje.lower()
+    abc = "abcdefghijklmnñopqrstuvwxyz"
+    for key in range(len(abc)):
+        letrasT = mensaje.count(abc[key])
+        try:
+            probabilidad = (letrasT/len(mensaje))*100
+        except ZeroDivisionError:
+            pass
+
+        print("Las probabilidad de la letra %s son: %s" %
+              (abc[key], probabilidad))
+
+
 def limpiar(tx):
     t = tx.lower()
     t = t.replace('á', 'a')
@@ -74,20 +89,23 @@ def decifrarFuerza():
                 trans = trans+symbol
         print("Descifrando con llave #%s: %s \n" % (key, trans))
 
+        for rn in range(len(abc)):
+            letrasT = trans.count(abc[rn])
+            try:
+                probabilidad = (letrasT/len(mensaje))*100
+            except ZeroDivisionError:
+                pass
 
-def contarLetras(mensaje):
-   # mensaje = input("Mensaje cifrado: \n")
-   # mensaje = mensaje.lower()
-    abc = "abcdefghijklmnñopqrstuvwxyz"
-    for key in range(len(abc)):
-        letrasT = mensaje.count(abc[key])
-        try:
-            probabilidad = (letrasT/len(mensaje))*100
-        except ZeroDivisionError:
-            pass
-        print(len(mensaje))
-        print("Las probabilidad de la letra %s son: %s" %
-              (abc[key], probabilidad))
+            print("Las probabilidad de la letra %s son: %s" %
+                  (abc[rn], probabilidad))
+
+            if (abc[rn] == "a" and probabilidad > 11.00) and (abc[rn] == "e" and probabilidad > 12.181) and (abc[rn] == "i" and probabilidad > 5.0) or (abc[rn] == "o" and probabilidad > 8.0):
+                print("Esta es la mejor clave")
+                keyFinal = key
+                print("La clave #", key, "Es la mas aceptable")
+                break
+    print("La clave #", keyFinal, "Es la mas aceptable")
+    #  contarLetras(trans)
 
 
 # mensaje = input("Mensaje cifrado: ")
@@ -97,5 +115,5 @@ def contarLetras(mensaje):
 # decifrarFuerza()
 # cifrar()
 # contarLetras()
-# decifrarFuerza()
-contarLetras(decifrar())
+decifrarFuerza()
+# print(contarLetras(decifrar()))
