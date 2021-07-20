@@ -81,7 +81,11 @@ def contarLetras(mensaje):
     abc = "abcdefghijklmnñopqrstuvwxyz"
     for key in range(len(abc)):
         letrasT = mensaje.count(abc[key])
-        probabilidad = letrasT/len(abc)
+        try:
+            probabilidad = (letrasT/len(mensaje))*100
+        except ZeroDivisionError:
+            pass
+        print(len(mensaje))
         print("Las probabilidad de la letra %s son: %s" %
               (abc[key], probabilidad))
 
