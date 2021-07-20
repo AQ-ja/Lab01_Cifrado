@@ -53,10 +53,12 @@ def decifrar():
             else:
                 trans = trans+symbol
         if clave == key:
-            print("Descifrando con Key #%s: %s \n" % (key, trans))
+            print("Descifrando con llave #%s: %s \n" % (key, trans))
 
 
-def decifrarFuerza(mensaje):
+def decifrarFuerza():
+    mensaje = input("Mensaje cifrado: \n")
+    mensaje = mensaje.lower()
     abc = "abcdefghijklmnñopqrstuvwxyz"
     for key in range(len(abc)):
         trans = ""
@@ -69,12 +71,12 @@ def decifrarFuerza(mensaje):
                 trans = trans+abc[num]
             else:
                 trans = trans+symbol
-        print("Descifrando con Key #%s: %s \n" % (key, trans))
+        print("Descifrando con llave #%s: %s \n" % (key, trans))
 
 
 # mensaje = input("Mensaje cifrado: ")
 # mensaje = mensaje.lower()
 # clave = int(input("clave"))
-decifrar()
-# decifrarFuerza(mensaje)
+# decifrar()
+decifrarFuerza()
 # cifrar()
