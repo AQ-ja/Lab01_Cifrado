@@ -47,6 +47,7 @@ def cifrar():
             cifrad += c
 
     print("Texto cifrado: \n", cifrad)
+    return cifrad
 
 
 def decifrar():
@@ -56,6 +57,8 @@ def decifrar():
     mensaje = limpiar(mensaje)
     clave = int(input("clave: \n"))
     abc = "abcdefghijklmnñopqrstuvwxyz"
+    print("Distribucion de letras del texto cifrado: \n")
+    print(contarLetras(mensaje))
     for key in range(len(abc)):
         trans = ""
         for symbol in mensaje:
@@ -102,9 +105,9 @@ def decifrarFuerza():
             if (abc[rn] == "a" and probabilidad > 11.00) and (abc[rn] == "e" and probabilidad > 12.181) and (abc[rn] == "i" and probabilidad > 5.0) or (abc[rn] == "o" and probabilidad > 8.0):
                 print("Esta es la mejor clave")
                 keyFinal = key
-                print("La clave #", key, "Es la mas aceptable")
+                print("La clave #", key, "Es la mas aceptable\n")
                 break
-    print("La clave #", keyFinal, "Es la mas aceptable")
+
     #  contarLetras(trans)
 
 
@@ -115,5 +118,31 @@ def decifrarFuerza():
 # decifrarFuerza()
 # cifrar()
 # contarLetras()
-decifrarFuerza()
+# decifrarFuerza()
 # print(contarLetras(decifrar()))
+
+
+print("---------CIFRADO CESAR-----------")
+print("Que desea hacer: \n")
+op = int(input(" 1.Decifrar\n 2.Decifrar y ver frecuencia de las letras\n 3.Codificar \n 4.Codificar y ver frecuencia de letras\n 5.Fuerza bruta para un mensaje cifrado\n 0.Salir\n"))
+
+if op != 0:
+
+    if op == 1:
+        print("Ha seleccionado la opcion de decifrar algun texto cifrado\n")
+        decifrar()
+
+    if op == 2:
+        print("Ha seleccionado la opcion de decifrar algun texto cifrado y ver la distribucion de las letras\n")
+        contarLetras(decifrar())
+    if op == 3:
+        print("Ha seleccionado la opcion de cifrar algun texto\n")
+        cifrar()
+    if op == 4:
+        print("Ha seleccionado la opcion de cifrar algun texto y ver la distribucion de las letras\n")
+        contarLetras(cifrar())
+    if op == 5:
+        print("Ha seleccionado la opcion de decrifrar por fuerza bruta")
+        decifrarFuerza()
+else:
+    print("Gracias por su preferencia\n")
