@@ -96,8 +96,8 @@ def decifrarFuerza():
             except ZeroDivisionError:
                 pass
 
-            print("Las probabilidad de la letra %s son: %s" %
-                  (abc[rn], probabilidad))
+           # print("Las probabilidad de la letra %s son: %s" %
+            #      (abc[rn], probabilidad))
 
             if (abc[rn] == "a" and probabilidad > 11.00) and (abc[rn] == "e" and probabilidad > 12.181) and (abc[rn] == "i" and probabilidad > 5.0) or (abc[rn] == "o" and probabilidad > 8.0):
                 print("Esta es la mejor clave")

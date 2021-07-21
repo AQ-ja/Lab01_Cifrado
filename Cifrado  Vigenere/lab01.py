@@ -69,19 +69,21 @@ print('El texto cifrado es: ', descifrar(texto, clave))
 print("_________________________________________________________________________")
 print("Ahora, la distribucion de los caracteres que aparecen en el texto cifrado")
 
+
 def contarLetras(texto):
        # mensaje = input("Mensaje cifrado: \n")
    # mensaje = mensaje.lower()
     abc = "abcdefghijklmnñopqrstuvwxyz"
-    for clave in range(len(abc)):
-        letrasT = texto.count(abc[clave])
+    for z in range(len(abc)):
+        letrasT = texto.count(abc[z])
         try:
             probabilidad = (letrasT/len(texto))*100
         except ZeroDivisionError:
             pass
 
         prop = print("Las probabilidad de la letra %s son: %s" %
-              (abc[clave], probabilidad))
-    return prop
-prop = contarLetras(texto)
-print(prop)
+              (abc[z], probabilidad))
+    
+
+contarLetras(texto)
+print(texto)
