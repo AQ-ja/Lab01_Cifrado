@@ -103,23 +103,9 @@ def decifrarFuerza():
             #      (abc[rn], probabilidad))
 
             if (abc[rn] == "a" and probabilidad > 11.00) and (abc[rn] == "e" and probabilidad > 12.181) and (abc[rn] == "i" and probabilidad > 5.0) or (abc[rn] == "o" and probabilidad > 8.0):
-                print("Esta es la mejor clave")
+
                 keyFinal = key
                 print("La clave #", key, "Es la mas aceptable\n")
-                break
-
-    #  contarLetras(trans)
-
-
-# mensaje = input("Mensaje cifrado: ")
-# mensaje = mensaje.lower()
-# clave = int(input("clave"))
-# decifrar()
-# decifrarFuerza()
-# cifrar()
-# contarLetras()
-# decifrarFuerza()
-# print(contarLetras(decifrar()))
 
 
 print("---------CIFRADO CESAR-----------")
