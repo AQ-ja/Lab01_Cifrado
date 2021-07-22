@@ -67,3 +67,4 @@ def decriptar():
 
 #encriptar()
 #decriptar()
+#contarLetras("affinecipher")
