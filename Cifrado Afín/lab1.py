@@ -1,7 +1,7 @@
 import nltk
 import re
 
-alfabeto = 'abcdefghijñlmnñopqrstuvwxyz'
+alfabeto = 'abcdefghijklmnñopqrstuvwxyz'
 
 def limpiar(tx):
     t = tx.lower()
@@ -30,7 +30,7 @@ def contarLetras(tx):
 
 def encriptar():
 
-    tx = input("Ingreso el texto a cifrar: \n").lower()
+    tx = input("Ingreso el texto a cifrar: \n")
     tx = limpiar(tx)
 
     a = int(input("Clave: \n"))
@@ -58,11 +58,12 @@ def decriptar():
     
     for x in tx:
         if x in alfabeto:
-            txD += alfabeto[int(((alfabeto.index(x) - b)*(1/a))) % (len(alfabeto))]
+            txD += alfabeto[int((a^(-1))*(alfabeto.index(x) - b)) % (len(alfabeto))]
         else:
-            txD = txD + x
+            txD += x
             
     print("Descifrando con llave #%s: %s \n" % (a, txD))
     return txD
 
-decriptar()
+#encriptar()
+#decriptar()
